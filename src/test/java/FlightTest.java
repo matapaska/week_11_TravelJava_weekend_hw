@@ -28,9 +28,22 @@ public class FlightTest {
 
     @Test
     public void shouldStartWithEmptyPassengerList(){
-
         assertEquals(0, flight.countPassengers());
     }
+
+    @Test
+    public void shouldAddPassengers(){
+        flight.addPassengers(passenger1);
+        assertEquals(1, flight.countPassengers());
+    }
+
+    @Test
+    public void shouldCountAvailableSeats(){
+        flight.addPassengers(passenger1);
+        assertEquals(149, flight.countAvailableSeats());
+    }
+    
+
 
 
 

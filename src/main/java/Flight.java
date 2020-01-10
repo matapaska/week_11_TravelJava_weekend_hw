@@ -30,7 +30,19 @@ public class Flight {
         return this.flightNumber;
     }
 
+    public PlaneType getPlaneType(){
+        return this.plane;
+    }
+
     public int countPassengers() {
         return this.passengerList.size();
+    }
+
+    public void addPassengers(Passenger passenger) {
+        this.passengerList.add(passenger);
+    }
+
+    public int countAvailableSeats() {
+        return this.plane.getPlaneCapacity() - countPassengers();
     }
 }
