@@ -8,6 +8,8 @@ public class FlightTest {
     private Flight flight;
     private Passenger passenger1;
     private Passenger passenger2;
+    private Passenger passenger3;
+    private Passenger passenger4;
 
 
 
@@ -17,6 +19,8 @@ public class FlightTest {
         flight = new Flight(PlaneType.B737, 1234, "WAW", "EDI", "12.30" );
         passenger1 = new Passenger("Alice", 3);
         passenger2 = new Passenger("Julia", 5);
+        passenger3 = new Passenger("Sophia", 8);
+        passenger4 = new Passenger("Amelia", 1);
 
 
     }
@@ -40,9 +44,27 @@ public class FlightTest {
     @Test
     public void shouldCountAvailableSeats(){
         flight.addPassengers(passenger1);
-        assertEquals(149, flight.countAvailableSeats());
+        assertEquals(2, flight.countAvailableSeats());
     }
-    
+    @Test
+    public void shouldBookPassengerSeatAvailable(){
+        flight.addPassengers(passenger1);
+        flight.addPassengers(passenger2);
+        flight.bookPassenger(passenger4);
+        assertEquals(3, flight.countPassengers());
+        assertEquals("Amelia", flight.getPassengerList().get(2).getName());
+
+    }
+
+    @Test
+    public void shouldNotBookPassengerSeatsNotAvailable(){
+        flight.addPassengers(passenger1);
+        flight.addPassengers(passenger2);
+        flight.addPassengers(passenger3);
+        flight.bookPassenger(passenger4);
+        assertEquals(3, flight.countPassengers());
+        assertEquals("Sophia", flight.getPassengerList().get(2).getName());
+    }
 
 
 

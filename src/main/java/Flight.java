@@ -45,4 +45,10 @@ public class Flight {
     public int countAvailableSeats() {
         return this.plane.getPlaneCapacity() - countPassengers();
     }
+
+    public void bookPassenger(Passenger passenger) {
+        if (countAvailableSeats() > 0){
+            addPassengers(passenger);
+        }
+    }
 }
