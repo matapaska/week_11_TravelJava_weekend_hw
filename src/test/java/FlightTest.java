@@ -26,7 +26,11 @@ public class FlightTest {
         assertEquals(1234, flight.getFlightNum());
     }
 
-    
+    @Test
+    public void shouldStartWithEmptyPassengerList(){
+
+        assertEquals(0, flight.countPassengers());
+    }
 
 
 
