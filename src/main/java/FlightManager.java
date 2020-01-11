@@ -21,4 +21,10 @@ public class FlightManager {
     public double calculateLeftWeight() {
         return calculateTotalBagWeightAllowance() - calculateTotalWeightOfBags();
     }
+
+
+    public void bookPassengerOnFlight(Flight flight, Passenger passenger) {
+        flight.addPassengers(passenger);
+        passenger.setFlight(flight);
+    }
 }
