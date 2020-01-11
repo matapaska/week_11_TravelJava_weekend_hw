@@ -16,7 +16,7 @@ public class FlightTest {
     @Before
 
     public void  before(){
-        flight = new Flight(PlaneType.B737, 1234, "WAW", "EDI", "12.30" );
+        flight = new Flight(PlaneType.B3, 1234, "WAW", "EDI", "12.30" );
         passenger1 = new Passenger("Alice", 3);
         passenger2 = new Passenger("Julia", 5);
         passenger3 = new Passenger("Sophia", 8);
@@ -65,6 +65,9 @@ public class FlightTest {
         assertEquals(3, flight.countPassengers());
         assertEquals("Sophia", flight.getPassengerList().get(2).getName());
     }
+
+    @Test
+    public void shouldCalculate
 
 
 
