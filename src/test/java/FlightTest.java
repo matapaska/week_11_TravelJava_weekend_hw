@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalTime;
+
 import static junit.framework.TestCase.assertEquals;
 
 public class FlightTest {
@@ -13,10 +15,11 @@ public class FlightTest {
 
 
 
+
     @Before
 
     public void  before(){
-        flight = new Flight(PlaneType.B3, 1234, "WAW", "EDI", "12.30" );
+        flight = new Flight(PlaneType.B3, 1234, "WAW", "EDI", (LocalTime.of(21,30, 00)));
         passenger1 = new Passenger("Alice", 3);
         passenger2 = new Passenger("Julia", 5);
         passenger3 = new Passenger("Sophia", 8);
@@ -28,6 +31,12 @@ public class FlightTest {
     @Test
     public void shouldHaveFlightNumber(){
         assertEquals(1234, flight.getFlightNum());
+    }
+
+    @Test
+    public void shouldGetDepartureTime(){
+        assertEquals(LocalTime.of(21, 30, 00), flight.getDepartureTime());
+
     }
 
     @Test
@@ -66,8 +75,7 @@ public class FlightTest {
         assertEquals("Sophia", flight.getPassengerList().get(2).getName());
     }
 
-    @Test
-    public void shouldCalculate
+
 
 
 

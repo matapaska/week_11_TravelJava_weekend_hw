@@ -5,9 +5,9 @@ public enum PlaneType {
     B777(350, 350);
 
     private final int capacity;
-    private final int planeWeight;
+    private final double planeWeight;
 
-    private PlaneType(int capacity, int planeWeight){
+    private PlaneType(int capacity, double planeWeight){
         this.capacity = capacity;
         this.planeWeight = planeWeight;
     }
@@ -16,7 +16,7 @@ public enum PlaneType {
         return this.capacity;
     }
 
-    public int getPlaneWeight() {
+    public double getPlaneWeight() {
         return this.planeWeight;
     }
 }
