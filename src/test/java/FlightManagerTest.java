@@ -55,9 +55,17 @@ public class FlightManagerTest {
         assertEquals(0.5, flightManager.calculateLeftWeight());
     }
 
+//    @Test
+//    public void shouldAssignSeatToPassenger(){
+//        flightManager.assignSeatToPassenger();
+//        assertEquals(1, passenger1.getSeatNum());
+//    }
+
     @Test
     public void shouldBookPassengerOnFlight(){
         flightManager.bookPassengerOnFlight(flight, passenger1);
         assertEquals(flight, passenger1.getFlight());
     }
+
+
 }

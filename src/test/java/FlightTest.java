@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.time.LocalTime;
 
 import static junit.framework.TestCase.assertEquals;
@@ -42,6 +43,17 @@ public class FlightTest {
     @Test
     public void shouldStartWithEmptyPassengerList(){
         assertEquals(0, flight.countPassengers());
+    }
+
+    @Test
+    public void shouldGetSeats(){
+        assertEquals(3, flight.getSeats().length);
+    }
+
+    @Test
+    public void shouldPopulateSeats(){
+        flight.populateSeats();
+        assertEquals(1, (int) Array.get(flight.getSeats(), 0));
     }
 
     @Test

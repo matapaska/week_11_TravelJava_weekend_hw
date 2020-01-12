@@ -1,5 +1,6 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 public class Flight {
 
@@ -10,6 +11,8 @@ public class Flight {
     private String departureAirport;
     private LocalTime departureTime;
     private ArrayList<Passenger> passengerList;
+    private int[] seats;
+
 
 
 
@@ -21,6 +24,7 @@ public class Flight {
         this.destination = destination;
         this.departureAirport = departureAirport;
         this.departureTime = departureTime;
+        this.seats = new int[plane.getPlaneCapacity()];
     }
 
     public ArrayList<Passenger> getPassengerList() {
@@ -37,6 +41,15 @@ public class Flight {
 
     public LocalTime getDepartureTime() {
         return this.departureTime;
+    }
+
+    public int[] getSeats(){
+        return this.seats;
+    }
+
+    public void populateSeats(){
+//        int[] seats = IntStream.rangeClosed(1, plane.getPlaneCapacity()).toArray();
+        this.seats = IntStream.iterate(1, n -> n + 1).limit(plane.getPlaneCapacity()).toArray();
     }
 
     public int countPassengers() {

@@ -2,8 +2,10 @@ public class FlightManager {
 
     private Flight flight;
 
+
     public FlightManager(Flight flight) {
         this.flight = flight;
+
     }
 
     public double calculateTotalBagWeightAllowance() {
@@ -22,9 +24,15 @@ public class FlightManager {
         return calculateTotalBagWeightAllowance() - calculateTotalWeightOfBags();
     }
 
+//    public void assignSeatToPassenger(Passenger passenger) {
+//
+//    }
+
 
     public void bookPassengerOnFlight(Flight flight, Passenger passenger) {
         flight.addPassengers(passenger);
         passenger.setFlight(flight);
     }
+
+
 }
