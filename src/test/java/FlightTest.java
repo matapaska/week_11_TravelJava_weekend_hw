@@ -56,6 +56,12 @@ public class FlightTest {
         assertEquals(1, (int) Array.get(flight.getSeats(), 0));
     }
 
+//    @Test
+//    public void shouldGenerateRandomSeatNumber(){
+//        flight.populateSeats();
+//        assertEquals(1, flight.generateRandomSeatNumber(flight.getSeats()));
+//    }
+
     @Test
     public void shouldAddPassengers(){
         flight.addPassengers(passenger1);
