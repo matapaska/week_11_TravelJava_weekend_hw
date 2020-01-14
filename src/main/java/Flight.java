@@ -70,9 +70,13 @@ public class Flight {
         this.passengerList.add(passenger);
     }
 
-    public void assignSeatToPassenger(Passenger passenger, int[] seats){
-        this.bookedSeats.add(generateRandomSeatNumber(seats));
-        if 
+    public void assignRandomSeatToPassenger(Passenger passenger, int[] seats){
+
+        int newRandomSeat = generateRandomSeatNumber(seats);
+        if (!this.bookedSeats.contains(newRandomSeat) ){
+            passenger.setSeatNum(newRandomSeat);
+            this.bookedSeats.add(newRandomSeat);
+        }
 
     }
 
@@ -83,9 +87,5 @@ public class Flight {
 
 
 
-    public void bookPassenger(Passenger passenger) {
-        if (countAvailableSeats() > 0){
-            addPassengers(passenger);
-        }
-    }
+
 }

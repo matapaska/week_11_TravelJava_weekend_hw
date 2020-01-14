@@ -24,14 +24,14 @@ public class FlightManager {
         return calculateTotalBagWeightAllowance() - calculateTotalWeightOfBags();
     }
 
-//    public void assignSeatToPassenger(Passenger passenger) {
-//
-//    }
 
 
-    public void bookPassengerOnFlight(Flight flight, Passenger passenger) {
-        flight.addPassengers(passenger);
-        passenger.setFlight(flight);
+    public void bookPassengerOnFlight(Flight flight, Passenger passenger, int[] seats) {
+        if (flight.countAvailableSeats() > 0){
+            flight.addPassengers(passenger);
+            passenger.setFlight(flight);
+            flight.assignRandomSeatToPassenger(passenger, seats);
+        }
     }
 
 

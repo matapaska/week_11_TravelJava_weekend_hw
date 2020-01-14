@@ -17,6 +17,7 @@ public class FlightTest {
 
 
 
+
     @Before
 
     public void  before(){
@@ -25,6 +26,7 @@ public class FlightTest {
         passenger2 = new Passenger("Julia", 5);
         passenger3 = new Passenger("Sophia", 8);
         passenger4 = new Passenger("Amelia", 1);
+
 
 
     }
@@ -73,25 +75,15 @@ public class FlightTest {
         flight.addPassengers(passenger1);
         assertEquals(2, flight.countAvailableSeats());
     }
-    @Test
-    public void shouldBookPassengerSeatAvailable(){
-        flight.addPassengers(passenger1);
-        flight.addPassengers(passenger2);
-        flight.bookPassenger(passenger4);
-        assertEquals(3, flight.countPassengers());
-        assertEquals("Amelia", flight.getPassengerList().get(2).getName());
 
+        @Test
+    public void shouldAssignSeatToPassenger(){
+        flight.populateSeats();
+        flight.assignRandomSeatToPassenger(passenger1, flight.getSeats());
+        assertEquals(1, passenger1.getSeatNum());
     }
 
-    @Test
-    public void shouldNotBookPassengerSeatsNotAvailable(){
-        flight.addPassengers(passenger1);
-        flight.addPassengers(passenger2);
-        flight.addPassengers(passenger3);
-        flight.bookPassenger(passenger4);
-        assertEquals(3, flight.countPassengers());
-        assertEquals("Sophia", flight.getPassengerList().get(2).getName());
-    }
+
 
 
 

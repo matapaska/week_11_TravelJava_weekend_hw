@@ -55,16 +55,29 @@ public class FlightManagerTest {
         assertEquals(0.5, flightManager.calculateLeftWeight());
     }
 
-//    @Test
-//    public void shouldAssignSeatToPassenger(){
-//        flightManager.assignSeatToPassenger();
-//        assertEquals(1, passenger1.getSeatNum());
-//    }
+    @Test
+    public void shouldBookPassengerSeatAvailable(){
+        flight.addPassengers(passenger1);
+        flight.addPassengers(passenger2);
+        flight.populateSeats();
+        flightManager.bookPassengerOnFlight(flight, passenger4, flight.getSeats());
+        assertEquals(3, flight.countPassengers());
+        assertEquals("Amelia", flight.getPassengerList().get(2).getName());
+        assertEquals(flight, passenger4.getFlight());
+//        assertEquals(1, passenger4.getSeatNum());
+
+    }
 
     @Test
-    public void shouldBookPassengerOnFlight(){
-        flightManager.bookPassengerOnFlight(flight, passenger1);
-        assertEquals(flight, passenger1.getFlight());
+    public void shouldNotBookPassengerSeatsNotAvailable(){
+        flight.addPassengers(passenger1);
+        flight.addPassengers(passenger2);
+        flight.addPassengers(passenger3);
+        flightManager.bookPassengerOnFlight(flight, passenger4, flight.getSeats());
+        assertEquals(3, flight.countPassengers());
+        assertEquals("Sophia", flight.getPassengerList().get(2).getName());
+        assertEquals(null, passenger4.getFlight());
+
     }
 
 
